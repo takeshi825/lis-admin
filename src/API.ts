@@ -127,6 +127,43 @@ export type DeleteCommentInput = {
   id?: string | null,
 };
 
+export type CreateEventInput = {
+  id?: string | null,
+  name?: string | null,
+  active: boolean,
+  createdAt?: string | null,
+  owner?: string | null,
+};
+
+export type ModelEventConditionInput = {
+  name?: ModelStringInput | null,
+  active?: ModelBooleanInput | null,
+  createdAt?: ModelStringInput | null,
+  owner?: ModelStringInput | null,
+  and?: Array< ModelEventConditionInput | null > | null,
+  or?: Array< ModelEventConditionInput | null > | null,
+  not?: ModelEventConditionInput | null,
+};
+
+export type ModelBooleanInput = {
+  ne?: boolean | null,
+  eq?: boolean | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+};
+
+export type UpdateEventInput = {
+  id: string,
+  name?: string | null,
+  active?: boolean | null,
+  createdAt?: string | null,
+  owner?: string | null,
+};
+
+export type DeleteEventInput = {
+  id?: string | null,
+};
+
 export type ModelBlogFilterInput = {
   id?: ModelIDInput | null,
   name?: ModelStringInput | null,
@@ -151,6 +188,17 @@ export type ModelCommentFilterInput = {
   and?: Array< ModelCommentFilterInput | null > | null,
   or?: Array< ModelCommentFilterInput | null > | null,
   not?: ModelCommentFilterInput | null,
+};
+
+export type ModelEventFilterInput = {
+  id?: ModelIDInput | null,
+  name?: ModelStringInput | null,
+  active?: ModelBooleanInput | null,
+  createdAt?: ModelStringInput | null,
+  owner?: ModelStringInput | null,
+  and?: Array< ModelEventFilterInput | null > | null,
+  or?: Array< ModelEventFilterInput | null > | null,
+  not?: ModelEventFilterInput | null,
 };
 
 export type CreateBlogMutationVariables = {
@@ -456,6 +504,57 @@ export type DeleteCommentMutation = {
   } | null,
 };
 
+export type CreateEventMutationVariables = {
+  input: CreateEventInput,
+  condition?: ModelEventConditionInput | null,
+};
+
+export type CreateEventMutation = {
+  createEvent:  {
+    __typename: "Event",
+    id: string,
+    name: string | null,
+    active: boolean,
+    createdAt: string | null,
+    owner: string | null,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateEventMutationVariables = {
+  input: UpdateEventInput,
+  condition?: ModelEventConditionInput | null,
+};
+
+export type UpdateEventMutation = {
+  updateEvent:  {
+    __typename: "Event",
+    id: string,
+    name: string | null,
+    active: boolean,
+    createdAt: string | null,
+    owner: string | null,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteEventMutationVariables = {
+  input: DeleteEventInput,
+  condition?: ModelEventConditionInput | null,
+};
+
+export type DeleteEventMutation = {
+  deleteEvent:  {
+    __typename: "Event",
+    id: string,
+    name: string | null,
+    active: boolean,
+    createdAt: string | null,
+    owner: string | null,
+    updatedAt: string,
+  } | null,
+};
+
 export type GetBlogQueryVariables = {
   id: string,
 };
@@ -633,6 +732,44 @@ export type ListCommentsQuery = {
       } | null,
       content: string,
       createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type GetEventQueryVariables = {
+  id: string,
+};
+
+export type GetEventQuery = {
+  getEvent:  {
+    __typename: "Event",
+    id: string,
+    name: string | null,
+    active: boolean,
+    createdAt: string | null,
+    owner: string | null,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListEventsQueryVariables = {
+  filter?: ModelEventFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListEventsQuery = {
+  listEvents:  {
+    __typename: "ModelEventConnection",
+    items:  Array< {
+      __typename: "Event",
+      id: string,
+      name: string | null,
+      active: boolean,
+      createdAt: string | null,
+      owner: string | null,
       updatedAt: string,
     } | null > | null,
     nextToken: string | null,
@@ -893,6 +1030,42 @@ export type OnDeleteCommentSubscription = {
     } | null,
     content: string,
     createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateEventSubscription = {
+  onCreateEvent:  {
+    __typename: "Event",
+    id: string,
+    name: string | null,
+    active: boolean,
+    createdAt: string | null,
+    owner: string | null,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateEventSubscription = {
+  onUpdateEvent:  {
+    __typename: "Event",
+    id: string,
+    name: string | null,
+    active: boolean,
+    createdAt: string | null,
+    owner: string | null,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteEventSubscription = {
+  onDeleteEvent:  {
+    __typename: "Event",
+    id: string,
+    name: string | null,
+    active: boolean,
+    createdAt: string | null,
+    owner: string | null,
     updatedAt: string,
   } | null,
 };
