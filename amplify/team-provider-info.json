@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-lisadmin-dev-132644-authRole",
+      "UnauthRoleArn": "arn:aws:iam::705261380451:role/amplify-lisadmin-dev-132644-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::705261380451:role/amplify-lisadmin-dev-132644-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-lisadmin-dev-132644-deployment",
+      "UnauthRoleName": "amplify-lisadmin-dev-132644-unauthRole",
+      "StackName": "amplify-lisadmin-dev-132644",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:705261380451:stack/amplify-lisadmin-dev-132644/6f9c7750-2a1f-11eb-a2d5-0a205ce0db80",
+      "AmplifyAppId": "dfns2yfogumic"
+    }
+  }
+}
